@@ -5,18 +5,18 @@ export const visuals: Visual[] = [
     id: 'urban-skyscape',
     title: 'Urban Skyscape',
     description: 'Digital painting of city silhouettes',
-    image: '/images/visual1.jpg',
+    image: '/images/Visuals1.jpg',
   },
   {
     id: 'coastal-sunset',
     title: 'Coastal Sunset',
     description: 'Vibrant beach scene with dramatic clouds',
-    image: '/images/visual2.jpg',
+    image: '/images/Visuals2.jpg',
   },
   {
     id: 'prairie-vista',
     title: 'Prairie Vista',
     description: 'Expansive landscape with sky details',
-    image: '/images/visual3.jpg',
+    image: '/images/Visuals3.jpg',
   },
 ]

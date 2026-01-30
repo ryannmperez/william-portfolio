@@ -1,6 +1,5 @@
 import Hero from '@/components/Hero'
 import Gallery from '@/components/Gallery'
-import ProjectShowcase from '@/components/ProjectShowcase'
 import About from '@/components/About'
 import Contact from '@/components/Contact'
 import { performances } from '@/data/performances'
@@ -14,28 +13,28 @@ export default function Home() {
 
       {/* Performance Section */}
       <section id="performance" className="py-24 px-8 max-w-[1400px] mx-auto">
-        <h2 className="text-4xl md:text-5xl font-light mb-12 text-center tracking-[0.2rem] text-text-primary">
+        <h2 className="text-4xl md:text-5xl font-light mb-4 text-center tracking-[0.2rem] text-text-primary">
           PERFORMANCE
         </h2>
-        <Gallery items={performances} />
+        <p className="text-center text-text-muted mb-8">Click to view gallery</p>
+        <Gallery items={performances} type="performance" />
       </section>
 
       {/* Design Section */}
       <section id="design" className="py-24 px-8 max-w-[1400px] mx-auto">
-        <h2 className="text-4xl md:text-5xl font-light mb-12 text-center tracking-[0.2rem] text-text-primary">
+        <h2 className="text-4xl md:text-5xl font-light mb-4 text-center tracking-[0.2rem] text-text-primary">
           DESIGN
         </h2>
-        {designs.map((project) => (
-          <ProjectShowcase key={project.id} project={project} />
-        ))}
+        <p className="text-center text-text-muted mb-8">Click to view gallery</p>
+        <Gallery items={designs} type="design" />
       </section>
 
       {/* Visuals Section */}
       <section id="visuals" className="py-24 px-8 max-w-[1400px] mx-auto">
-        <h2 className="text-4xl md:text-5xl font-light mb-12 text-center tracking-[0.2rem] text-text-primary">
+        <h2 className="text-4xl md:text-5xl font-light mb-4 text-center tracking-[0.2rem] text-text-primary">
           VISUALS
         </h2>
-        <Gallery items={visuals} />
+        <Gallery items={visuals} type="visual" />
       </section>
 
       <About />
