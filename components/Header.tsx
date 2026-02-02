@@ -54,6 +54,7 @@ const navLinks: NavLink[] = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
@@ -65,6 +66,11 @@ export default function Header() {
     }
     setIsMenuOpen(false)
     setActiveDropdown(null)
+    setMobileExpanded(null)
+  }
+
+  const toggleMobileSection = (label: string) => {
+    setMobileExpanded(mobileExpanded === label ? null : label)
   }
 
   return (
@@ -117,7 +123,10 @@ export default function Header() {
         {/* Mobile Hamburger Button */}
         <div className="md:hidden flex justify-center">
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => {
+              setIsMenuOpen(!isMenuOpen)
+              if (isMenuOpen) setMobileExpanded(null)
+            }}
             className="text-text-secondary p-2"
             aria-label="Toggle menu"
           >
@@ -148,35 +157,58 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <ul className="md:hidden mt-4 flex flex-col items-center gap-4">
-            {navLinks.map((link) => (
-              <li key={link.href} className="w-full text-center">
-                <a
-                  href={link.href}
-                  onClick={(e) => handleClick(e, link.href)}
-                  className="text-text-secondary text-base tracking-wider transition-colors duration-300 hover:text-accent-orange"
-                >
-                  {link.label}
-                </a>
-                {/* Mobile dropdown items */}
-                {link.dropdown && (
-                  <ul className="mt-2 space-y-1">
-                    {link.dropdown.map((item) => (
-                      <li key={item.id}>
-                        <Link
-                          href={item.href}
-                          onClick={(e) => handleClick(e, item.href)}
-                          className="block text-text-muted text-sm hover:text-accent-orange transition-colors"
+          <div className="md:hidden mt-4 max-h-[70vh] overflow-y-auto">
+            <ul className="flex flex-col items-center gap-2">
+              {navLinks.map((link) => (
+                <li key={link.href} className="w-full">
+                  {link.dropdown ? (
+                    <>
+                      {/* Section header - tappable to expand */}
+                      <button
+                        onClick={() => toggleMobileSection(link.label)}
+                        className="w-full py-3 text-text-secondary text-base tracking-wider transition-colors duration-300 hover:text-accent-orange flex items-center justify-center gap-2"
+                      >
+                        {link.label}
+                        <svg
+                          className={`w-4 h-4 transition-transform duration-200 ${mobileExpanded === link.label ? 'rotate-180' : ''}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
                         >
-                          {item.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+
+                      {/* Expandable dropdown items */}
+                      {mobileExpanded === link.label && (
+                        <ul className="bg-white/5 rounded-lg py-2 mb-2">
+                          {link.dropdown.map((item) => (
+                            <li key={item.id}>
+                              <Link
+                                href={item.href}
+                                onClick={(e) => handleClick(e, item.href)}
+                                className="block py-2 px-4 text-text-muted text-sm hover:text-accent-orange transition-colors"
+                              >
+                                {item.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={(e) => handleClick(e, link.href)}
+                      className="block py-3 text-center text-text-secondary text-base tracking-wider transition-colors duration-300 hover:text-accent-orange"
+                    >
+                      {link.label}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
     </nav>
