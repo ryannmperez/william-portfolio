@@ -19,9 +19,9 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { href: '#home', label: 'HOME' },
+  { href: '/#home', label: 'HOME' },
   {
-    href: '#performance',
+    href: '/#performance',
     label: 'PERFORMANCE',
     dropdown: performances.filter(p => !p.placeholder).map(p => ({
       id: p.id,
@@ -30,7 +30,7 @@ const navLinks: NavLink[] = [
     }))
   },
   {
-    href: '#design',
+    href: '/#design',
     label: 'DESIGN',
     dropdown: designs.map(d => ({
       id: d.id,
@@ -39,16 +39,16 @@ const navLinks: NavLink[] = [
     }))
   },
   {
-    href: '#visuals',
+    href: '/#visuals',
     label: 'VISUALS',
     dropdown: visuals.map(v => ({
       id: v.id,
       title: v.title,
-      href: '#visuals'
+      href: '/#visuals'
     }))
   },
-  { href: '#about', label: 'ABOUT' },
-  { href: '#contact', label: 'CONTACT' },
+  { href: '/#about', label: 'ABOUT' },
+  { href: '/#contact', label: 'CONTACT' },
 ]
 
 export default function Header() {
@@ -57,12 +57,17 @@ export default function Header() {
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('#')) {
-      e.preventDefault()
-      const target = document.querySelector(href)
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (href.startsWith('/#')) {
+      const hash = href.slice(1) // e.g. "#home"
+      const isHomePage = window.location.pathname === '/'
+      if (isHomePage) {
+        e.preventDefault()
+        const target = document.querySelector(hash)
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
       }
+      // If not on homepage, let the default <a> navigation handle it
     }
     setIsMenuOpen(false)
     setActiveDropdown(null)

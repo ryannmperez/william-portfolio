@@ -6,10 +6,28 @@ interface GalleryProps {
   type: 'performance' | 'design' | 'visual'
 }
 
+// Gallery wall size patterns - creates varied, organic layout
+const sizePatterns = [
+  'col-span-2 row-span-2', // large feature
+  'col-span-1 row-span-1', // standard
+  'col-span-1 row-span-2', // tall
+  'col-span-1 row-span-1', // standard
+  'col-span-2 row-span-1', // wide
+  'col-span-1 row-span-1', // standard
+  'col-span-1 row-span-1', // standard
+  'col-span-1 row-span-2', // tall
+  'col-span-2 row-span-1', // wide
+  'col-span-1 row-span-1', // standard
+  'col-span-1 row-span-1', // standard
+  'col-span-2 row-span-2', // large feature
+  'col-span-1 row-span-1', // standard
+  'col-span-1 row-span-1', // standard
+]
+
 export default function Gallery({ items, type }: GalleryProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-      {items.map((item) => {
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] md:auto-rows-[220px] lg:auto-rows-[240px] gap-3 md:gap-4 mt-12">
+      {items.map((item, index) => {
         const isDesign = 'heroImage' in item
         const image = isDesign ? (item as DesignProject).heroImage : (item as Performance | Visual).image
         const description = isDesign
@@ -25,6 +43,8 @@ export default function Gallery({ items, type }: GalleryProps) {
           }
         }
 
+        const sizeClass = sizePatterns[index % sizePatterns.length]
+
         return (
           <GalleryItem
             key={item.id}
@@ -34,6 +54,7 @@ export default function Gallery({ items, type }: GalleryProps) {
             image={image}
             placeholder={'placeholder' in item ? item.placeholder : false}
             href={href}
+            sizeClass={sizeClass}
           />
         )
       })}

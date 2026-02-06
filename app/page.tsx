@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
 
       {/* Performance Section */}
-      <section id="performance" className="py-24 px-8 max-w-[1400px] mx-auto">
+      <section id="performance" className="py-40 px-8 max-w-[1400px] mx-auto">
         <h2 className="text-4xl md:text-5xl font-light mb-4 text-center tracking-[0.2rem] text-text-primary">
           PERFORMANCE
         </h2>
@@ -21,7 +21,7 @@ export default function Home() {
       </section>
 
       {/* Design Section */}
-      <section id="design" className="py-24 px-8 max-w-[1400px] mx-auto">
+      <section id="design" className="py-40 px-8 max-w-[1400px] mx-auto">
         <h2 className="text-4xl md:text-5xl font-light mb-4 text-center tracking-[0.2rem] text-text-primary">
           DESIGN
         </h2>
@@ -30,7 +30,7 @@ export default function Home() {
       </section>
 
       {/* Visuals Section */}
-      <section id="visuals" className="py-24 px-8 max-w-[1400px] mx-auto">
+      <section id="visuals" className="py-40 px-8 max-w-[1400px] mx-auto">
         <h2 className="text-4xl md:text-5xl font-light mb-4 text-center tracking-[0.2rem] text-text-primary">
           VISUALS
         </h2>

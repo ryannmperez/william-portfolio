@@ -15,8 +15,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body>
+        {/* Dynamic animated background orbs */}
+        <div className="dynamic-bg" aria-hidden="true">
+          <div className="dynamic-bg-orb-3" />
+          <div className="dynamic-bg-orb-4" />
+        </div>
         <Header />
-        {children}
+        <div className="relative z-[1]">
+          {children}
+        </div>
       </body>
     </html>
   )

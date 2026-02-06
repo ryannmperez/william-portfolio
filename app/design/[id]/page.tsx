@@ -6,6 +6,22 @@ interface Props {
   params: { id: string }
 }
 
+// Gallery wall patterns for detail pages
+const detailSizePatterns = [
+  'col-span-2 row-span-2',
+  'col-span-1 row-span-1',
+  'col-span-1 row-span-2',
+  'col-span-1 row-span-1',
+  'col-span-1 row-span-1',
+  'col-span-2 row-span-1',
+  'col-span-1 row-span-1',
+  'col-span-1 row-span-2',
+  'col-span-1 row-span-1',
+  'col-span-2 row-span-1',
+  'col-span-1 row-span-1',
+  'col-span-1 row-span-1',
+]
+
 export function generateStaticParams() {
   return designs.map((project) => ({
     id: project.id,
@@ -32,7 +48,7 @@ export default function DesignPage({ params }: Props) {
   ]
 
   return (
-    <main className="min-h-screen bg-dark-primary pt-24 pb-16">
+    <main className="min-h-screen pt-24 pb-16">
       <div className="max-w-[1400px] mx-auto px-8">
         {/* Back Button */}
         <Link
@@ -55,17 +71,17 @@ export default function DesignPage({ params }: Props) {
           {project.date} · {project.description}
         </p>
 
-        {/* Image Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Gallery Wall Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[180px] md:auto-rows-[200px] lg:auto-rows-[220px] gap-3 md:gap-4">
           {allImages.map((image, index) => (
             <div
               key={index}
-              className="overflow-hidden rounded-lg aspect-video"
+              className={`${detailSizePatterns[index % detailSizePatterns.length]} overflow-hidden rounded-lg group cursor-pointer`}
             >
               <img
                 src={image}
                 alt={`${project.title} - Image ${index + 1}`}
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
             </div>
           ))}
