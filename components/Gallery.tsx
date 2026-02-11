@@ -60,7 +60,7 @@ export default function Gallery({ items, type }: GalleryProps) {
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="flex overflow-x-auto gap-4 md:gap-6 pb-4 scrollbar-hide snap-x snap-mandatory px-8"
+        className="flex overflow-x-auto gap-4 md:gap-6 pb-20 scrollbar-hide snap-x snap-mandatory px-8"
       >
       {items.map((item, index) => {
         const isDesign = 'heroImage' in item

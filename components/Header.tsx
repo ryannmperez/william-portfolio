@@ -48,6 +48,8 @@ const navLinks: NavLink[] = [
     }))
   },
   { href: '/#about', label: 'ABOUT' },
+  { href: '/resume', label: 'RESUME' },
+  { href: '/reel', label: 'REEL' },
   { href: '/#contact', label: 'CONTACT' },
 ]
 

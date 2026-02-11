@@ -516,3 +516,74 @@ body {
     }
   }
 }
+
+/* Print Styles for Resume */
+@media print {
+  /* Set page margins */
+  @page {
+    margin: 0.75in;
+    size: letter;
+  }
+
+  /* Reset and constrain body */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  /* Hide background elements, nav, and non-resume sections */
+  .dynamic-bg,
+  nav,
+  header,
+  footer {
+    display: none !important;
+  }
+
+  main > div > *:not(#print-resume) {
+    display: none !important;
+  }
+
+  /* Ensure main and container are visible */
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: auto !important;
+  }
+
+  main > div {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Show print section */
+  #print-resume {
+    display: block !important;
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Hide the title and print button */
+  #print-resume > h2,
+  #print-resume > div:last-child {
+    display: none !important;
+  }
+
+  /* Show and style the resume content */
+  #print-resume > div:nth-child(2) {
+    display: block !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Ensure colors print correctly */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
