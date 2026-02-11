@@ -17,14 +17,14 @@ export default function GalleryItem({ id, title, description, image, placeholder
   const content = (
     <>
       {/* Image or Placeholder - edge to edge, no borders */}
-      <div className="w-full h-full overflow-hidden">
+      <div className="w-full h-full overflow-hidden flex items-center justify-center bg-black/20">
         {placeholder ? (
           <PlaceholderImage />
         ) : image ? (
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
           />
         ) : (
           <PlaceholderImage />
