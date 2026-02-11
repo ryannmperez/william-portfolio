@@ -16,13 +16,13 @@ export const performances: Performance[] = [
   {
     id: 'angels-millennium',
     title: 'Angels in America: Millennium Approaches',
-    description: '2023',
+    description: 'January 2025',
     image: '/images/AiApOne1.jpg',
   },
   {
     id: 'angels-perestroika',
     title: 'Angels in America: Perestroika',
-    description: '2023',
+    description: 'June 2025',
     image: '/images/AiApTwo1.jpg',
   },
 ]
