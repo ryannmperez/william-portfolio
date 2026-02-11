@@ -82,7 +82,7 @@ export default function Header() {
 
   return (
     <nav className="fixed top-0 w-full bg-dark-primary/90 backdrop-blur-md py-6 z-[1000] border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-[1400px] mx-auto px-4">
         {/* Desktop Navigation */}
         <ul className="hidden md:flex justify-center gap-12 list-none">
           {navLinks.map((link) => (
