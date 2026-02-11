@@ -50,6 +50,18 @@ const performanceGalleries: Record<string, string[]> = {
     '/images/AiApTwo8.jpg',
     '/images/AiApTwo9.jpg',
   ],
+  'into-the-woods': [
+    '/images/IntoTheWoods1.jpg',
+    '/images/IntoTheWoods2.jpg',
+    '/images/IntoTheWoods3.jpg',
+    '/images/IntoTheWoods4.jpg',
+    '/images/IntoTheWoods5.jpg',
+    '/images/IntoTheWoods6.jpg',
+  ],
+  'sunday-in-the-park': [
+    '/images/SundayInThePark1.jpg',
+    '/images/SundayInThePark2.jpg',
+  ],
 }
 
 // Gallery wall patterns for detail pages
@@ -117,8 +129,24 @@ export default async function PerformancePage({ params }: Props) {
           {performance.title}
         </h1>
 
-        {/* Description */}
-        <p className="text-center text-text-muted mb-12 text-lg">
+        {/* Role and Company */}
+        {(performance.role || performance.company) && (
+          <div className="text-center mb-2">
+            {performance.role && (
+              <p className="text-xl md:text-2xl text-text-primary font-light">
+                {performance.role}
+              </p>
+            )}
+            {performance.company && (
+              <p className="text-lg text-text-muted">
+                {performance.company}
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* Date */}
+        <p className="text-center text-text-muted mb-12">
           {performance.description}
         </p>
 

@@ -56,6 +56,7 @@ export const designs: DesignProject[] = [
     galleryImages: [
       '/images/Heathers2.jpg',
       '/images/Heathers3.jpg',
+      '/videos/Heathers4.mp4',
       '/images/Heathers5.jpg',
       '/images/Heathers7.jpg',
       '/images/Heathers8.jpg',
@@ -184,6 +185,17 @@ export const designs: DesignProject[] = [
     galleryImages: [
       '/images/BigFish2.jpg',
       '/images/BigFish3.jpg',
+    ],
+  },
+  {
+    id: 'enemy-of-the-people',
+    title: 'An Enemy of the People',
+    description: '',
+    date: 'November 2018',
+    heroImage: '/images/AnEnemyOfThePeople1.jpg',
+    galleryImages: [
+      '/images/AnEnemyOfThePeople2.jpg',
+      '/videos/AnEnemyOfThePeople1.mov',
     ],
   },
 ]
