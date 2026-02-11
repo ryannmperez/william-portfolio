@@ -51,7 +51,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-24 px-8">
-      <div className="max-w-[1400px] mx-auto">
+      <div className="max-w-[1280px] mx-auto">
         <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-[0.2rem] text-text-primary text-center">
           GET IN TOUCH
         </h2>

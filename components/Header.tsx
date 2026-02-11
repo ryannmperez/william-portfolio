@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { performances } from '@/data/performances'
 import { designs } from '@/data/designs'
@@ -57,6 +57,28 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [lastScrollY, setLastScrollY] = useState(0)
+
+  // Handle scroll to show/hide header on mobile
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+
+      // Show header when scrolling up, hide when scrolling down
+      if (currentScrollY < lastScrollY || currentScrollY < 100) {
+        setIsVisible(true)
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false)
+        setIsMenuOpen(false) // Close menu when hiding header
+      }
+
+      setLastScrollY(currentScrollY)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [lastScrollY])
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('/#')) {
@@ -81,8 +103,8 @@ export default function Header() {
   }
 
   return (
-    <nav className="fixed top-0 w-full bg-dark-primary/90 backdrop-blur-md py-6 z-[1000] border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4">
+    <nav className={`fixed top-0 w-full bg-black z-[1000] transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full md:translate-y-0'}`}>
+      <div className="max-w-[1280px] mx-auto bg-dark-primary/90 backdrop-blur-md py-6 px-4 border-b border-white/10">
         {/* Desktop Navigation */}
         <ul className="hidden md:flex justify-center gap-12 list-none">
           {navLinks.map((link) => (

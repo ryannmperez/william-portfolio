@@ -30,7 +30,7 @@ export default function ResumePage() {
 
   return (
     <main className="min-h-screen pt-24 pb-16">
-      <div className="max-w-[1400px] mx-auto px-8">
+      <div className="max-w-[1280px] mx-auto px-8">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
           <h1 className="text-3xl md:text-5xl lg:text-7xl font-light mb-4 md:mb-6 text-accent-orange tracking-wider">

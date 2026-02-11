@@ -3,7 +3,7 @@ import { siteConfig } from '@/data/siteConfig'
 export default function About() {
   return (
     <section id="about" className="py-24 px-8">
-      <div className="max-w-[1400px] mx-auto">
+      <div className="max-w-[1280px] mx-auto">
         <h2 className="text-4xl md:text-5xl font-light mb-12 text-center tracking-[0.2rem] text-text-primary">
           ABOUT
         </h2>
