@@ -42,10 +42,10 @@ export default function Gallery({ items, type }: GalleryProps) {
   const translateX = -scrollOffset
 
   return (
-    <div className="relative">
+    <div className="relative -mx-8">
       {/* Swipe indicator - animates with scroll */}
       <div
-        className="md:hidden text-center text-text-muted text-sm mb-4 flex items-center justify-center gap-2 transition-transform pointer-events-none"
+        className="md:hidden text-center text-text-muted text-sm mb-4 flex items-center justify-center gap-2 transition-transform pointer-events-none px-8"
         style={{
           opacity: opacity,
           transform: `translateX(${translateX}px)`,
@@ -60,7 +60,7 @@ export default function Gallery({ items, type }: GalleryProps) {
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="flex overflow-x-auto gap-4 md:gap-6 pb-4 scrollbar-hide snap-x snap-mandatory"
+        className="flex overflow-x-auto gap-4 md:gap-6 pb-4 scrollbar-hide snap-x snap-mandatory px-8"
       >
       {items.map((item, index) => {
         const isDesign = 'heroImage' in item
@@ -78,6 +78,9 @@ export default function Gallery({ items, type }: GalleryProps) {
           }
         }
 
+        const isFirst = index === 0
+        const isLast = index === items.length - 1
+
         return (
           <GalleryItem
             key={item.id}
@@ -87,14 +90,11 @@ export default function Gallery({ items, type }: GalleryProps) {
             image={image}
             placeholder={'placeholder' in item ? item.placeholder : false}
             href={href}
-            sizeClass="h-[400px] md:h-[450px] lg:h-[500px] snap-center flex-shrink-0"
+            sizeClass={`w-screen md:w-auto h-[400px] md:h-[450px] lg:h-[500px] snap-start md:snap-center flex-shrink-0 ${isFirst ? '' : ''} ${isLast ? '' : ''}`}
           />
         )
       })}
       </div>
-
-      {/* Gradient fade indicator on right edge (mobile only) */}
-      <div className="md:hidden absolute top-12 right-0 bottom-0 w-20 bg-gradient-to-l from-[#0a0a12] via-[#0a0a12]/50 to-transparent pointer-events-none" />
     </div>
   )
 }
