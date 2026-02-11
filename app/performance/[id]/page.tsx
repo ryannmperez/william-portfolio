@@ -1,6 +1,7 @@
 import { performances } from '@/data/performances'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import LightboxGallery from '@/components/LightboxGallery'
 
 // Map performance IDs to their full gallery images
 const performanceGalleries: Record<string, string[]> = {
@@ -14,7 +15,6 @@ const performanceGalleries: Record<string, string[]> = {
     '/images/RockyHorror7.jpg',
     '/images/RockyHorror8.jpg',
     '/images/RockyHorror9.jpg',
-    '/images/RockyHorror10.jpg',
   ],
   'jcs-performance': [
     '/images/JesusChristSuperstar1.jpg',
@@ -80,15 +80,17 @@ export function generateStaticParams() {
     }))
 }
 
-export function generateMetadata({ params }: Props) {
-  const performance = performances.find((p) => p.id === params.id)
+export async function generateMetadata({ params }: Props) {
+  const { id } = await params
+  const performance = performances.find((p) => p.id === id)
   return {
     title: performance ? `${performance.title} - William René Bryant` : 'Not Found',
   }
 }
 
-export default function PerformancePage({ params }: Props) {
-  const performance = performances.find((p) => p.id === params.id)
+export default async function PerformancePage({ params }: Props) {
+  const { id } = await params
+  const performance = performances.find((p) => p.id === id)
 
   if (!performance || performance.placeholder) {
     notFound()
@@ -120,21 +122,12 @@ export default function PerformancePage({ params }: Props) {
           {performance.description}
         </p>
 
-        {/* Gallery Wall Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[180px] md:auto-rows-[200px] lg:auto-rows-[220px] gap-3 md:gap-4">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className={`${detailSizePatterns[index % detailSizePatterns.length]} overflow-hidden rounded-lg group cursor-pointer`}
-            >
-              <img
-                src={image}
-                alt={`${performance.title} - Image ${index + 1}`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-            </div>
-          ))}
-        </div>
+        {/* Gallery with Lightbox */}
+        <LightboxGallery
+          images={images}
+          title={performance.title}
+          sizePatterns={detailSizePatterns}
+        />
       </div>
     </main>
   )
