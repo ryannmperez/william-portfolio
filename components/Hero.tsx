@@ -27,8 +27,8 @@ export default function Hero() {
       </div>
 
       {/* Content - Fixed max width */}
-      <div className="z-20 w-full max-w-[1280px] mx-auto h-full flex items-end md:items-center">
-        <div className="w-full px-8 flex flex-col md:flex-row items-center justify-end md:justify-start gap-8 md:gap-12 lg:gap-16 pb-20 md:pb-0">
+      <div className="z-20 w-full max-w-[1280px] mx-auto h-full flex items-center">
+        <div className="w-full px-8 flex flex-col md:flex-row items-center justify-center md:justify-start gap-8 md:gap-12 lg:gap-16 mt-[40vh] md:mt-0">
           {/* Headshot - Desktop - Aligned to left edge of container */}
           <div className="hidden md:block relative flex-shrink-0 -mt-8 -ml-8">
             <div
