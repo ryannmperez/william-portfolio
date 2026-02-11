@@ -69,7 +69,7 @@ export default function LightboxGallery({ images, title, sizePatterns }: Lightbo
         >
           {/* Close button */}
           <button
-            className="absolute top-4 right-4 text-white text-6xl leading-none hover:text-accent-orange transition-colors z-10 bg-black/50 rounded-full w-14 h-14 flex items-center justify-center hover:bg-black/70"
+            className="absolute top-24 left-24 text-white text-4xl hover:text-accent-orange transition-colors z-10"
             onClick={() => setLightboxIndex(null)}
             aria-label="Close lightbox"
           >
@@ -81,7 +81,7 @@ export default function LightboxGallery({ images, title, sizePatterns }: Lightbo
             {/* Left arrow */}
             {lightboxIndex > 0 && (
               <button
-                className="absolute -left-16 text-white text-6xl hover:text-accent-orange transition-colors z-10"
+                className="absolute -left-24 md:-left-32 text-white text-6xl hover:text-accent-orange transition-colors z-10 w-32 h-full flex items-center justify-center"
                 onClick={(e) => {
                   e.stopPropagation()
                   setLightboxIndex(lightboxIndex - 1)
@@ -102,7 +102,7 @@ export default function LightboxGallery({ images, title, sizePatterns }: Lightbo
             {/* Right arrow */}
             {lightboxIndex < images.length - 1 && (
               <button
-                className="absolute -right-16 text-white text-6xl hover:text-accent-orange transition-colors z-10"
+                className="absolute -right-24 md:-right-32 text-white text-6xl hover:text-accent-orange transition-colors z-10 w-32 h-full flex items-center justify-center"
                 onClick={(e) => {
                   e.stopPropagation()
                   setLightboxIndex(lightboxIndex + 1)
