@@ -112,7 +112,7 @@ export default async function PerformancePage({ params }: Props) {
 
   return (
     <main className="min-h-screen pt-24 pb-16">
-      <div className="max-w-[1400px] mx-auto px-8">
+      <div className="max-w-[1280px] mx-auto px-8">
         {/* Back Button */}
         <Link
           href="/#performance"
