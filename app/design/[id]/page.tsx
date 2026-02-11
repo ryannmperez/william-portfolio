@@ -1,6 +1,7 @@
 import { designs } from '@/data/designs'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import LightboxGallery from '@/components/LightboxGallery'
 
 interface Props {
   params: { id: string }
@@ -28,15 +29,17 @@ export function generateStaticParams() {
   }))
 }
 
-export function generateMetadata({ params }: Props) {
-  const project = designs.find((p) => p.id === params.id)
+export async function generateMetadata({ params }: Props) {
+  const { id } = await params
+  const project = designs.find((p) => p.id === id)
   return {
     title: project ? `${project.title} - William René Bryant` : 'Not Found',
   }
 }
 
-export default function DesignPage({ params }: Props) {
-  const project = designs.find((p) => p.id === params.id)
+export default async function DesignPage({ params }: Props) {
+  const { id } = await params
+  const project = designs.find((p) => p.id === id)
 
   if (!project) {
     notFound()
@@ -68,24 +71,15 @@ export default function DesignPage({ params }: Props) {
 
         {/* Date & Description */}
         <p className="text-center text-text-muted mb-12 text-lg max-w-3xl mx-auto">
-          {project.date} · {project.description}
+          {project.description ? `${project.date} · ${project.description}` : project.date}
         </p>
 
-        {/* Gallery Wall Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[180px] md:auto-rows-[200px] lg:auto-rows-[220px] gap-3 md:gap-4">
-          {allImages.map((image, index) => (
-            <div
-              key={index}
-              className={`${detailSizePatterns[index % detailSizePatterns.length]} overflow-hidden rounded-lg group cursor-pointer`}
-            >
-              <img
-                src={image}
-                alt={`${project.title} - Image ${index + 1}`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-            </div>
-          ))}
-        </div>
+        {/* Gallery with Lightbox */}
+        <LightboxGallery
+          images={allImages}
+          title={project.title}
+          sizePatterns={detailSizePatterns}
+        />
       </div>
     </main>
   )

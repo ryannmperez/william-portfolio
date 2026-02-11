@@ -4,7 +4,7 @@ export const designs: DesignProject[] = [
   {
     id: 'cinderella',
     title: 'Cinderella',
-    description: 'Fairytale design featuring textured tree canopies, sculptural horse, and transformative staircase',
+    description: '',
     date: 'December 2024',
     heroImage: '/images/Cinderella3.jpg',
     galleryImages: [
@@ -18,7 +18,7 @@ export const designs: DesignProject[] = [
   {
     id: 'dracula',
     title: 'Dracula',
-    description: 'Gothic design featuring geometric ceiling piece, dramatic chandeliers, and atmospheric lighting',
+    description: '',
     date: 'October 2024',
     heroImage: '/images/Dracula1.jpg',
     galleryImages: [
@@ -29,27 +29,9 @@ export const designs: DesignProject[] = [
     ],
   },
   {
-    id: 'rocky-horror-design',
-    title: 'The Rocky Horror Show',
-    description: 'Bold theatrical design with dramatic staging and iconic visual elements',
-    date: 'October 2025',
-    heroImage: '/images/RockyHorror1.jpg',
-    galleryImages: [
-      '/images/RockyHorror2.jpg',
-      '/images/RockyHorror3.jpg',
-      '/images/RockyHorror4.jpg',
-      '/images/RockyHorror5.jpg',
-      '/images/RockyHorror6.jpg',
-      '/images/RockyHorror7.jpg',
-      '/images/RockyHorror8.jpg',
-      '/images/RockyHorror9.jpg',
-      '/images/RockyHorror10.jpg',
-    ],
-  },
-  {
     id: 'jcs-design',
     title: 'Jesus Christ Superstar',
-    description: 'Designed & Performed · Industrial scaffolding design with draped fabrics, columns, and multi-level platforms',
+    description: 'Designed & Performed',
     date: 'September 2024',
     heroImage: '/images/JesusChristSuperstar1.jpg',
     galleryImages: [
@@ -68,7 +50,7 @@ export const designs: DesignProject[] = [
   {
     id: 'heathers',
     title: 'Heathers',
-    description: 'Bold design with suspended plaid panels echoing the Heathers\' iconic skirts, dynamic color-changing lighting, and multi-level platforms',
+    description: '',
     date: 'May 2024',
     heroImage: '/images/Heathers1.jpg',
     galleryImages: [
@@ -84,7 +66,7 @@ export const designs: DesignProject[] = [
   {
     id: 'fun-home',
     title: 'Fun Home',
-    description: 'Directed & Designed · Minimalist design with abstract frame backdrop, dynamic projection mapping, and transformative platform staging',
+    description: 'Directed & Designed',
     date: 'April 2022',
     heroImage: '/images/FunHome1.jpg',
     galleryImages: [
@@ -102,7 +84,7 @@ export const designs: DesignProject[] = [
   {
     id: 'anne-frank',
     title: 'The Diary of Anne Frank',
-    description: 'Period design featuring detailed attic interior with slatted walls, practical lighting, and intimate multi-room layout',
+    description: '',
     date: 'January 2022',
     heroImage: '/images/AnneFrank1.jpg',
     galleryImages: [],
@@ -110,7 +92,7 @@ export const designs: DesignProject[] = [
   {
     id: 'christmas-carol',
     title: 'A Christmas Carol',
-    description: 'Scenic design featuring pixelated portals, suspended windows, and dynamic lighting transformations',
+    description: '',
     date: 'December 2021',
     heroImage: '/images/ChristmasCarol3.jpg',
     galleryImages: [
@@ -126,7 +108,7 @@ export const designs: DesignProject[] = [
   {
     id: 'fences',
     title: 'Fences',
-    description: 'Urban backyard design with detailed row houses, autumn tree, brick pattern flooring, and chain-link fencing',
+    description: '',
     date: 'September 2021',
     heroImage: '/images/Fences1.jpg',
     galleryImages: [
@@ -140,7 +122,7 @@ export const designs: DesignProject[] = [
   {
     id: 'daddy-long-legs',
     title: 'Daddy Long Legs',
-    description: 'Period design featuring turquoise library with hexagonal platforms, detailed chevron flooring, and vintage study details',
+    description: '',
     date: 'June 2021',
     heroImage: '/images/DaddyLongLegs1.jpg',
     galleryImages: [
@@ -155,7 +137,7 @@ export const designs: DesignProject[] = [
   {
     id: 'west-side-story',
     title: 'West Side Story',
-    description: 'Dynamic urban staging with iconic fire escapes and streetscape elements',
+    description: '',
     date: '2020',
     heroImage: '/images/WestSide1.jpg',
     galleryImages: [
@@ -169,7 +151,7 @@ export const designs: DesignProject[] = [
   {
     id: 'chicago',
     title: 'Chicago',
-    description: 'Art Deco runway design with double staircases, geometric patterned floor, and vintage marquee lighting',
+    description: '',
     date: 'February 2020',
     heroImage: '/images/Chicago1.jpg',
     galleryImages: [
@@ -184,7 +166,7 @@ export const designs: DesignProject[] = [
   {
     id: 'romeo-juliet',
     title: 'Romeo and Juliet',
-    description: 'Classical design with draped fabric windows, suspended textiles, multi-level platforms, and marbled floor projections',
+    description: '',
     date: 'January 2020',
     heroImage: '/images/RomeoandJuliet1.jpg',
     galleryImages: [
@@ -196,7 +178,7 @@ export const designs: DesignProject[] = [
   {
     id: 'big-fish',
     title: 'Big Fish',
-    description: 'Multi-level junkyard set with geometric LED backdrop and suspended platforms',
+    description: '',
     date: 'May 2019',
     heroImage: '/images/BigFish1.jpg',
     galleryImages: [

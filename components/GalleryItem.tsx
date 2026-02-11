@@ -17,7 +17,7 @@ export default function GalleryItem({ id, title, description, image, placeholder
   const content = (
     <>
       {/* Image or Placeholder - edge to edge, no borders */}
-      <div className="w-full h-full overflow-hidden flex items-center justify-center bg-black/20">
+      <div className="w-full h-full overflow-hidden flex items-center justify-center">
         {placeholder ? (
           <PlaceholderImage />
         ) : image ? (
@@ -37,7 +37,7 @@ export default function GalleryItem({ id, title, description, image, placeholder
       {/* Info panel that slides up */}
       <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-20">
         <h3 className="text-lg font-semibold mb-1 text-text-primary drop-shadow-lg">{title}</h3>
-        <p className="text-sm text-text-muted drop-shadow-lg line-clamp-2">{description}</p>
+        {description && <p className="text-sm text-text-muted drop-shadow-lg line-clamp-2">{description}</p>}
       </div>
     </>
   )
