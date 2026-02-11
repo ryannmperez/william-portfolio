@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next'
 import { performances } from '@/data/performances'
 import { designs } from '@/data/designs'
 
+export const dynamic = 'force-static'
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://williamrenebryant.com'
 
